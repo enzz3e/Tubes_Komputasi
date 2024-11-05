@@ -1,6 +1,6 @@
 # Tubes_Komputasi
 
-# Build docker compose
+## Build docker compose
 - docker-compose build
 - docker-compose up -d
 
