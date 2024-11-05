@@ -6,7 +6,7 @@ class Purchase
 
     private DateTime $tgl_purchase;
 
-    private int $supplier_id; // Changed from supplier_code to supplier_id
+    private string $supplier_name;
 
     private int $quantity;
 
@@ -23,7 +23,7 @@ class Purchase
     {
         $this->id = $id;
         $this->tgl_purchase = $tgl_purchase;
-        $this->supplier_name = $supplier_name; // Update assignment
+        $this->supplier_name = $supplier_name;
         $this->quantity = $quantity;
         $this->total_price = $total_price;
     }
@@ -48,14 +48,14 @@ class Purchase
         $this->tgl_purchase = $tgl_purchase;
     }
 
-    public function getSupplierName(): string // Updated method name
+    public function getSupplierName(): string
     {
-        return $this->supplier_name; // Update return value
+        return $this->supplier_name;
     }
 
-    public function setSupplierName(int $supplier_name): void // Updated method name
+    public function setSupplierName(int $supplier_name): void 
     {
-        $this->supplier_id = $supplier_name; // Update assignment
+        $this->supplier_id = $supplier_name;
     }
 
     public function getQuantity(): int
