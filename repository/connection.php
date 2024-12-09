@@ -1,11 +1,14 @@
 <?php
-function getConnection(): PDO
-{
-    $host = "db";
-    $port = 3306;
-    $database = "fp_web";
-    $username = "root";
-    $password = "12345";
+function getConnection() {
+    $host = 'db';  // Nama host sesuai dengan nama service di docker-compose
+    $dbname = 'fp_web';
+    $username = 'root';
+    $password = '12345';
 
-    return new PDO("mysql:host=$host;port=$port;dbname=$database", $username, $password);
+    try {
+        return new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    } catch (PDOException $e) {
+        die('Connection failed: ' . $e->getMessage());
+    }
 }
+?>

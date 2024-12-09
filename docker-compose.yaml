@@ -1,31 +1,35 @@
-  version: '3.8'
+version: '3.8'
 
-  services:
-    php:
-      build:
-        context: .
-        dockerfile: Dockerfile
-      ports:
-        - "8080:80"
-      volumes:
-        - .:/var/www/html  # Mount seluruh folder proyek
-      networks:
-        - my-network
+services:
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8083:80"
+    volumes:
+      - .:/var/www/html  # Mount seluruh folder proyek
+    networks:
+      - my-network
+    depends_on:
+      - db  # Pastikan service PHP menunggu DB siap
 
-    db:
-      image: mysql:5.7
-      restart: always
-      environment:
-        MYSQL_DATABASE: fp_web
-        MYSQL_ROOT_PASSWORD: "12345"
-      volumes:
-        - db_data:/var/lib/mysql
-        - ./database.sql:/docker-entrypoint-initdb.d/database.sql  # Impor file SQL
-      networks:
-        - my-network
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: fp_web
+      MYSQL_ROOT_PASSWORD: "12345"
+      MYSQL_USER: user_fp  # (Opsional) Tambahkan user tambahan
+      MYSQL_PASSWORD: "user_password"  # Password untuk user tambahan
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./database.sql:/docker-entrypoint-initdb.d/database.sql  # Impor file SQL
+    networks:
+      - my-network
 
-  volumes:
-    db_data:
+volumes:
+  db_data:
 
-  networks:
-    my-network:
+networks:
+  my-network:
