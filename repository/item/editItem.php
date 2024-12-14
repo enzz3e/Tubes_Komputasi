@@ -8,6 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST["name"] ?? "";
     $price = $_POST["price"] ?? "";
     $stock = $_POST["stock"] ?? "";
+    $size = $_POST["size"] ?? "";
     $category = $_POST["category"] ?? "";
 
     // Check if null
@@ -15,9 +16,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         try {
             $connection = getConnection();
 
-            $query = "UPDATE item SET name = ?, price = ?, stock = ?, category = ? WHERE id = ?";
+            $query = "UPDATE item SET name = ?, price = ?, stock = ?, category = ?, size = ? WHERE id = ?";
             $statement = $connection->prepare($query);
-            $statement->execute([$name, $price, $stock, $category, $id]);
+            $statement->execute([$name, $price, $stock, $category, $size, $id]);
             $connection = null;
 
             // Redirect if success
