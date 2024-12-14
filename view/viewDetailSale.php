@@ -14,6 +14,7 @@ $query = "SELECT
         sale.customer_name AS customer_name,
         detail_sale.item_id,
         item.name AS item_name,
+        item.size AS item_size,
         detail_sale.price,
         detail_sale.quantity,
         detail_sale.total_price
@@ -60,6 +61,7 @@ $result = $statement->fetchAll();
                 <!-- Header -->
                 <tr>
                     <th>NAME</th>
+                    <th>SIZE</th>
                     <th>PRICE</th>
                     <th>QUANTITY</th>
                     <th>T_PRICE</th>
@@ -71,6 +73,7 @@ $result = $statement->fetchAll();
                 foreach ($result as $row) { ?>
                     <tr>
                         <td><?= $row['item_name'] ?></td>
+                        <td><?= $row['item_size'] ?></td>
                         <td><?= $row['price'] ?></td>
                         <td><?= $row['quantity'] ?></td>
                         <td><?= $row['total_price'] ?></td>
