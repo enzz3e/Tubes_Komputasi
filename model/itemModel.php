@@ -12,19 +12,23 @@ class Item
 
     private string $category;
 
+    private int $size;
+
     /**
      * @param int $id
      * @param string $name
      * @param int $price
      * @param int $stock
+     * @param int $size
      * @param string $category
      */
-    public function __construct(int $id, string $name, int $price, int $stock, string $category)
+    public function __construct(int $id, string $name, int $price, int $stock, string $category, int $size)
     {
         $this->id = $id; // Ganti code ke id
         $this->name = $name;
         $this->price = $price;
         $this->stock = $stock;
+        $this->size = $size;
         $this->category = $category;
     }
 
@@ -76,5 +80,13 @@ class Item
     public function setCategory(string $category): void
     {
         $this->category = $category;
+    }
+
+    public function getSize(): int {
+        return $this->size;
+    }
+
+    public function setSize(int $size):void {
+        $this->size = $size;
     }
 }
