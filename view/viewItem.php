@@ -98,6 +98,10 @@ $data = getAllItem();
                             <div class="input-form">
                                 <label>STOCK</label>
                                 <input type="text" id="add-stock-input" class="input" name="stock">
+                            </div>  
+                            <div class="input-form">
+                                <label>SIZE</label>
+                                <input type="number" id="add-size-input" class="input" name="size">
                             </div>
                             <div class="input-form">
                                 <label>CATEGORY</label>
@@ -131,6 +135,10 @@ $data = getAllItem();
                                 <input type="text" id="edit-stock-input" class="input" name="stock">
                             </div>
                             <div class="input-form">
+                                <label>SIZE</label>
+                                <input type="number" id="edit-size-input" class="input" name="size">
+                            </div>
+                            <div class="input-form">
                                 <label>CATEGORY</label>
                                 <input type="text" id="edit-category-input" class="input" name="category">
                             </div>
@@ -153,6 +161,7 @@ $data = getAllItem();
                                 <th>NAME</th>
                                 <th>PRICE /ITEM</th>
                                 <th>STOCK</th>
+                                <th>SIZE</th>
                                 <th>CATEGORY</th>
                                 <th class="change">ACTIONS</th>
                             </tr>
@@ -166,10 +175,11 @@ $data = getAllItem();
                                     <td><?= $item->getName()?></td>
                                     <td><?= $item->getPrice()?></td>
                                     <td><?= $item->getStock()?></td>
+                                    <td><?= $item->getSize()?></td>
                                     <td><?= $item->getCategory()?></td>
                                     <td>
                                         <div class="button-control">
-                                            <a href="#" class="button-edit" data-id="<?=$item->getId()?>" data-name="<?= $item->getName()?>" data-price="<?= $item->getPrice()?>" data-stock="<?= $item->getStock()?>" data-category="<?= $item->getCategory()?>">EDIT</a>
+                                            <a href="#" class="button-edit" data-id="<?=$item->getId()?>" data-name="<?= $item->getName()?>" data-price="<?= $item->getPrice()?>" data-stock="<?= $item->getStock()?>" data-size="<?= $item->getSize()?>" data-category="<?= $item->getCategory()?>">EDIT</a>
                                             <a href="../repository/item/deleteItem.php?id=<?= $item->getId() ?>" class="button-delete">DELETE</a>
                                         </div>
                                     </td>
