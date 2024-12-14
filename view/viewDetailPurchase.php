@@ -14,6 +14,7 @@ $query = "SELECT
         supplier.name AS supplier_name,
         detail_purchase.item_id,
         item.name AS item_name,
+        item.size AS item_size,
         detail_purchase.price,
         detail_purchase.quantity,
         detail_purchase.total_price
@@ -61,6 +62,7 @@ $result = $statement->fetchAll();
                         <!-- Header -->
                         <tr>
                             <th>NAME ITEM</th>
+                            <th>SIZE</th>
                             <th>PRICE</th>
                             <th>QUANTITY</th>
                             <th>T_PRICE</th>
@@ -72,6 +74,7 @@ $result = $statement->fetchAll();
                             foreach ($result as $row) { ?>
                                 <tr>
                                     <td><?= $row['item_name'] ?></td>
+                                    <td><?= $row['item_size'] ?></td>
                                     <td><?= $row['price'] ?></td>
                                     <td><?= $row['quantity'] ?></td>
                                     <td><?= $row['total_price'] ?></td>
