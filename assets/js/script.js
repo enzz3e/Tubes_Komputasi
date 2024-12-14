@@ -67,12 +67,14 @@ function itemPopUp() {
             const name = editButton.getAttribute("data-name");
             const price = editButton.getAttribute("data-price");
             const stock = editButton.getAttribute("data-stock");
+            const size = editButton.getAttribute("data-size");
             const category = editButton.getAttribute("data-category");
 
             document.getElementById("edit-id-input").value = id;
             document.getElementById("edit-name-input").value = name;
             document.getElementById("edit-price-input").value = price;
             document.getElementById("edit-stock-input").value = stock;
+            document.getElementById("edit-size-input").value = size;
             document.getElementById("edit-category-input").value = category;
             editPopup.style.display = "flex";
         });
