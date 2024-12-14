@@ -40,6 +40,7 @@ $data = getAllItem();
                                 <tr>
                                     <th>NO</th>
                                     <th>NAME</th>
+                                    <th>SIZE</th>
                                     <th>PRICE /ITEM</th>
                                     <th width="20%">ACTIONS</th>
                                 </tr>
@@ -52,13 +53,14 @@ $data = getAllItem();
                                     <tr>
                                         <td><?= $counter ?></td>
                                         <td><?= $item->getName() ?></td>
+                                        <td><?= $item->getSize() ?></td>
                                         <td><?= $item->getPrice() ?></td>
                                         <td>
                                             <div class="td-quantity">
-                                                <a href="../repository/sale_customer/actionAddSale.php?action_type=remove_item&id=<?=$item->getId()?>&product_name=<?=$item->getName()?>&quantity=1&price=<?=$item->getPrice()?>" class="min">
+                                                <a href="../repository/sale_customer/actionAddSale.php?action_type=remove_item&id=<?=$item->getId()?>&product_name=<?=$item->getName()?>&size=<?=$item->getSize()?>&quantity=1&price=<?=$item->getPrice()?>" class="min">
                                                     MIN
                                                 </a>
-                                                <a href="../repository/sale_customer/actionAddSale.php?action_type=add_item&id=<?=$item->getId()?>&product_name=<?=$item->getName()?>&quantity=1&price=<?=$item->getPrice()?>" class="plus">
+                                                <a href="../repository/sale_customer/actionAddSale.php?action_type=add_item&id=<?=$item->getId()?>&product_name=<?=$item->getName()?>&size=<?=$item->getSize()?>&quantity=1&price=<?=$item->getPrice()?>" class="plus">
                                                     PLUS
                                                 </a>
                                             </div>
@@ -77,6 +79,7 @@ $data = getAllItem();
                             <thead>
                             <tr>
                                 <th>Name</th>
+                                <th>Size</th>
                                 <th width="20%">Qty</th>
                                 <th width="30%">Total</th>
                             </tr>
@@ -93,6 +96,7 @@ $data = getAllItem();
                                     ?>
                                     <tr>
                                         <td style="padding: 5px"><?= $cartItem['product_name'] ?></td>
+                                        <td><?= $cartItem['size'] ?></td>
                                         <td><?= $cartItem['quantity'] ?></td>
                                         <td><?= $totalItem ?></td>
                                     </tr>
