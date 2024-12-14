@@ -44,6 +44,7 @@ function getAllItem(): array
             name: $row["name"],
             price: $row["price"],
             stock: $row["stock"],
+            size: $row["size"],
             category: $row["category"]
         );
 
