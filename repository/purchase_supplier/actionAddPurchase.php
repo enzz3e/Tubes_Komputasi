@@ -9,12 +9,14 @@ if($action_type=='add_item') {
 
     $id = $_GET['id'];
     $product_name = $_GET['product_name'];
+    $size = $_GET['size'];
     $quantity = $_GET['quantity'];
     $price = $_GET['price'];
 
     $product_arr = array(
         'id'=>$id,
         'product_name'=>$product_name,
+        'size' => $size,
         'quantity'=>$quantity,
         'price'=>$price,
     );
