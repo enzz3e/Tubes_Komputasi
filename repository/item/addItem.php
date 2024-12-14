@@ -7,6 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST["name"] ?? "";
     $price = $_POST["price"] ?? "";
     $stock = $_POST["stock"] ?? "";
+    $size = $_POST["size"] ?? "";
     $category = $_POST["category"] ?? "";
 
     // Check if fields are not empty
@@ -15,9 +16,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $connection = getConnection();
 
             // Update query to insert data without needing to specify ID
-            $query = "INSERT INTO item (name, price, stock, category) VALUES (?, ?, ?, ?)";
-            $statement = $connection->prepare($query);
-            $statement->execute([$name, $price, $stock, $category]);
+            $query = "INSERT INTO item (name, price, stock, category" . (empty($size) ? "" : ", size") . ") 
+            VALUES (?, ?, ?, ?" . (empty($size) ? "" : ", ?") . ")";
+                       $statement = $connection->prepare($query);
+            $statement->execute([$name, $price, $stock, $category, $size]);
 
             // Close the connection
             $connection = null;
